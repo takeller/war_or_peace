@@ -75,6 +75,18 @@ class TurnTest < Minitest::Test
   def test_winner_war
     assert_equal :war, @turn_war.type
     assert_equal @player2_war, @turn_war.winner
+
+    player2 = @player2_war
+    player2.deck.remove_card
+    assert_equal true, player2.deck.cards.length < 3
+    turn = Turn.new(@player1_war, player2)
+    assert_equal @player1_war, turn.winner
+
+    player1 = @player1_war
+    player1.deck.remove_card
+    assert_equal true, player1.deck.cards.length < 3
+    turn = Turn.new(player1, @player2_war)
+    assert_equal player2, turn.winner
   end
 
   def test_winner_mutually_assured_destruction

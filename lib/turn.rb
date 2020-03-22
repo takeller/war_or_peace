@@ -29,11 +29,8 @@ class Turn
       return player1 unless player2.deck.rank_of_card_at(0) > player1.deck.rank_of_card_at(0)
       player2
     elsif type == :war
-      if player1.deck.cards.length < 3
-        return player2
-      elsif player2.deck.cards.length < 3
-        return player1
-      end
+      return player2 if player1.deck.cards.length < 3
+      return player1 if player2.deck.cards.length < 3
       return player1 unless player2.deck.rank_of_card_at(2) > player1.deck.rank_of_card_at(2)
       player2
     else
