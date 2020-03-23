@@ -1,4 +1,3 @@
-require './lib/card.rb'
 class CardGenerator
 
   attr_reader :filename
@@ -20,7 +19,6 @@ class CardGenerator
   end
 
   def format_to_cards
-    counter = 1
     @cards.map! { |card| card.chomp('')}
     @cards.map! { |card| card.split(',')}
     @cards.map! { |card| card.map! { |card| card.strip}}
@@ -38,7 +36,3 @@ class CardGenerator
     format_to_cards
   end
 end
-
-# card_gen = CardGenerator.new("cards.txt")
-# card_gen.read_file
-# card_gen.format_to_cards
