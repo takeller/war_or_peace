@@ -3,28 +3,6 @@ class GameSetup
   def initialize(filename)
     @filename = filename
   end
-  # def make_standard_deck
-  #   suits = [:spades, :hearts, :clubs, :diamonds]
-  #   standard_deck = []
-  #   suits.each do |suit|
-  #     i = 2
-  #     while i < 15 do
-  #       if i < 11
-  #         standard_deck << Card.new(suit, "#{i}", i)
-  #       elsif i == 11
-  #        standard_deck << Card.new(suit, "Jack", i)
-  #       elsif i == 12
-  #        standard_deck << Card.new(suit, "Queen", i)
-  #       elsif i == 13
-  #        standard_deck << Card.new(suit, "King", i)
-  #       elsif i == 14
-  #        standard_deck << Card.new(suit, "Ace", i)
-  #       end
-  #       i += 1
-  #     end
-  #   end
-  #   standard_deck
-  # end
 
   def make_standard_deck
     standard_deck = CardGenerator.new(@filename).cards
@@ -39,8 +17,8 @@ class GameSetup
 
   def make_players
     player_decks = make_player_decks
-    player1 = Player.new("Taylor", player_decks[0])
-    player2 = Player.new("Gus", player_decks[1])
+    player1 = Player.new("Megan", player_decks[0])
+    player2 = Player.new("Aurora", player_decks[1])
     players = [player1, player2]
   end
 
