@@ -5,12 +5,14 @@ require './lib/deck'
 require './lib/player'
 require './lib/turn'
 require './lib/game_setup'
+require './lib/card_generator'
 require 'pry'
 
 class GameSetupTest < Minitest::Test
 
   def setup
-    @game_setup = GameSetup.new
+    @filename = "cards.txt"
+    @game_setup = GameSetup.new(@filename)
   end
 
   def test_it_exists
@@ -36,11 +38,6 @@ class GameSetupTest < Minitest::Test
 
     assert_equal 26, player1_deck.cards.length
     assert_equal 26, player2_deck.cards.length
-
-    player1_deck_ranks = player1_deck.map { |card| card.rank }
-    player2_deck_ranks = player2_deck.map { |card| card.rank }
-
-    assert_equal false, player1_deck_ranks == player2_deck_ranks
   end
 
   def test_make_players
