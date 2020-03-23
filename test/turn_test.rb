@@ -94,14 +94,6 @@ class TurnTest < Minitest::Test
     assert_equal "No Winner", @turn_mutually_assured_destruction.winner
   end
 
-  def test_winner_player_has_lost
-    3.times do
-      @player1_basic.deck.remove_card
-    end
-
-    assert_equal @player2_basic, @turn_basic.winner
-  end
-
   def test_pile_cards_basic
     assert_equal [], @turn_basic.spoils_of_war
 
